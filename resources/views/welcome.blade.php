@@ -1,51 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>W3.CSS Template</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        *:not(h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6) {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Cairo" !important;
-        }
-    </style>
-</head>
-
-<body class="w3-right-align" dir="rtl">
-
-    <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <a href="#home" class="w3-bar-item w3-right w3-button"><b>مؤسسة</b> أحمد السيد لمعدات السلامة</a>
-            <!-- Float links to the right. Hide them on small screens -->
-            <div class="w3-left w3-hide-small">
-                <a href="#projects" class="w3-bar-item w3-button">المشاريع</a>
-                <a href="#about" class="w3-bar-item w3-button">عنا</a>
-                <a href="#تواصل" class="w3-bar-item w3-button">اتصل بنا</a>
-            </div>
-        </div>
-    </div>
-
+@extends('layouts.app')
+@section('content')
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-        <img class="w3-image" src="{{ asset('images/site/architect/image-header.png') }}" alt="Architecture"
-            width="1500" height="800">
+        <img class="w3-image" src="{{ asset('images/site/architect/image-header.png') }}" alt="Architecture" width="1500"
+            height="800">
         <div class="w3-display-middle w3-margin-top w3-center w3-padding w3-light-grey w3-opacity-min w3-round">
             <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>مؤسسة</b></span>
                 <span class="w3-hide-small w3-text-grey">أحمد السيد لمعدات السلامة</span>
@@ -194,17 +152,9 @@
 
         <!-- End page content -->
     </div>
+@endsection
 
 
-    <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-16">
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                class="w3-hover-text-green">w3.css</a></p>
-    </footer>
-
-</body>
-
-</html>
 
 
 {{-- <!DOCTYPE html>

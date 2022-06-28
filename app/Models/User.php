@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'admin_level',
         'email',
         'password',
     ];
@@ -41,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //
+    public function isSuperAdmin()
+    {
+        # code...
+        return $this->admin_level > 1 ? true : false;
+    }
 }

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\WelcomeHeaderController;
+use App\Models\welcomeHeader;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +20,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//
 Auth::routes();
-
+//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+///**->middleware('can:superAdmin') */
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
+    Route::prefix('cms')->group(function () {
+        Route::get('/', [dashboardController::class, 'cms'])->name('cms');
+        Route::prefix('welcome')->group(function () {
+            Route::get('/', [dashboardController::class, 'welcome'])->name('cms.welcome');
+            //
+            Route::resource('hesder', WelcomeHeaderController::class)->name('cms.welcome.header');
+        });
+    });
+});
