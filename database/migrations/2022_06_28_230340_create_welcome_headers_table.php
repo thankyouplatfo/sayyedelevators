@@ -15,6 +15,8 @@ class CreateWelcomeHeadersTable extends Migration
     {
         Schema::create('welcome_headers', function (Blueprint $table) {
             $table->id();
+            $table->string('path');
+            $table->string('alt');
             $table->timestamps();
         });
     }

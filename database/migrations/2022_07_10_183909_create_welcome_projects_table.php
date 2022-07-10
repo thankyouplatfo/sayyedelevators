@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImagesHeadersTable extends Migration
+class CreateWelcomeProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateImagesHeadersTable extends Migration
      */
     public function up()
     {
-        Schema::create('images_headers', function (Blueprint $table) {
+        Schema::create('welcome_projects', function (Blueprint $table) {
             $table->id();
+            $table->string('path');
+            $table->string('alt');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateImagesHeadersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images_headers');
+        Schema::dropIfExists('welcome_projects');
     }
 }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\imagesHeader;
-use App\Http\Requests\StoreimagesHeaderRequest;
-use App\Http\Requests\UpdateimagesHeaderRequest;
+use App\Traits\IncModels;
+use Illuminate\Http\Request;
 
-class ImagesHeaderController extends Controller
+class WelcomePageController extends Controller
 {
+    use IncModels;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +15,9 @@ class ImagesHeaderController extends Controller
      */
     public function index()
     {
+        $covers = $this->welcomeHeader->orderBy('id','desc')->paginate(10); 
         //
+        return view('welcome', compact('covers'));
     }
 
     /**
@@ -31,10 +33,10 @@ class ImagesHeaderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreimagesHeaderRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreimagesHeaderRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -42,10 +44,10 @@ class ImagesHeaderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(imagesHeader $imagesHeader)
+    public function show($id)
     {
         //
     }
@@ -53,10 +55,10 @@ class ImagesHeaderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(imagesHeader $imagesHeader)
+    public function edit($id)
     {
         //
     }
@@ -64,11 +66,11 @@ class ImagesHeaderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateimagesHeaderRequest  $request
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateimagesHeaderRequest $request, imagesHeader $imagesHeader)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +78,10 @@ class ImagesHeaderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(imagesHeader $imagesHeader)
+    public function destroy($id)
     {
         //
     }

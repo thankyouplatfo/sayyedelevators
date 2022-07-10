@@ -8,8 +8,8 @@ use Illuminate\Support\Str;
 trait ImageUploadTrait
 {
     protected $image_path = "app/public/images/covers";
-    protected $image_height = 600;
-    protected $image_width = 600;
+    protected $image_height = 800;
+    protected $image_width = 1500;
     //
     public function uploadImage($img)
     {

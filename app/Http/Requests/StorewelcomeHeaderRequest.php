@@ -13,7 +13,7 @@ class StorewelcomeHeaderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class StorewelcomeHeaderRequest extends FormRequest
     {
         return [
             //
+            'path' => 'required|mimes:png,jpg|image',
+            'alt' => 'required|string',
         ];
     }
 }

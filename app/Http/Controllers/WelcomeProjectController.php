@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\welcomeHeader;
-use App\Http\Requests\StorewelcomeHeaderRequest;
-use App\Http\Requests\UpdatewelcomeHeaderRequest;
+use App\Models\WelcomeProject;
+use App\Http\Requests\StoreWelcomeProjectRequest;
+use App\Http\Requests\UpdateWelcomeProjectRequest;
 use App\Traits\ImageUploadTrait;
 use App\Traits\IncModels;
 use Illuminate\Support\Facades\Storage;
 
-class WelcomeHeaderController extends Controller
+class WelcomeProjectController extends Controller
 {
-    use IncModels, ImageUploadTrait;
+    use ImageUploadTrait, IncModels;
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +20,9 @@ class WelcomeHeaderController extends Controller
     public function index()
     {
         //
-        $images = $this->welcomeHeader->orderBy('id', 'desc')->paginate(10);
+        $projects = $this->welcomeProject->orderBy('id', 'desc')->paginate(8);
         //
-        return view('admin.cms.welcome.header.index', compact('images'));
+        return view('admin.cms.welcome.projects.index', compact('projects'));
     }
 
     /**
@@ -33,69 +33,67 @@ class WelcomeHeaderController extends Controller
     public function create()
     {
         //
-        return view('admin.cms.welcome.header.create');
+        return view('admin.cms.welcome.projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorewelcomeHeaderRequest  $request
+     * @param  \App\Http\Requests\StoreWelcomeProjectRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorewelcomeHeaderRequest $request)
+    public function store(StoreWelcomeProjectRequest $request)
     {
         //
         $data = $request->validated();
         $data['path'] = $this->uploadImage($request->path);
         //
-        $this->welcomeheader = welcomeHeader::create($data);
+        $this->welcomeProject = WelcomeProject::create($request->data);
         //
-        return back()->with('msg', trans('site.msg_c'));
+        return back()->with('smg', trans('site.msg_c'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\welcomeHeader  $header
+     * @param  \App\Models\WelcomeProject  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(welcomeHeader $header)
+    public function show(WelcomeProject $project)
     {
         //
-        return view('admin.cms.welcome.header.show', compact('header'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\welcomeHeader  $header
+     * @param  \App\Models\WelcomeProject  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(welcomeHeader $header)
+    public function edit(WelcomeProject $project)
     {
-        
         //
-        return view('admin.cms.welcome.header.edit', compact('header'));
+        return view('admin.cms.welcome.projects.edit', compact('welcomeProject'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatewelcomeHeaderRequest  $request
-     * @param  \App\Models\welcomeHeader  $header
+     * @param  \App\Http\Requests\UpdateWelcomeProjectRequest  $request
+     * @param  \App\Models\WelcomeProject  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatewelcomeHeaderRequest $request, welcomeHeader $header)
+    public function update(UpdateWelcomeProjectRequest $request, WelcomeProject $project)
     {
         //
         $data = $request->validated();
         if ($request->has('path')) {
             # code...
-            Storage::disk('public')->delete($header->path);
+            Storage::disk('public')->delete($project->path);
             $data['path'] = $this->uploadImage($request->path);
         }
         //
-        $this->welcomeHeader = $header->find($header->id)->update($data);
+        $this->welcomeHeader = $project->find($project->id)->update($data);
         //
         return back()->with('msg', trans('site.msg_u'));
     }
@@ -103,15 +101,16 @@ class WelcomeHeaderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\welcomeHeader  $header
+     * @param  \App\Models\WelcomeProject  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(welcomeHeader $header)
+    public function destroy(WelcomeProject $project)
     {
         //
-        Storage::disk('public')->delete($header->cover_image);
         //
-        $this->welcomeHeader->find($header->id)->delete();
+        Storage::disk('public')->delete($project->cover_image);
+        //
+        $this->welcomeHeader->find($project->id)->delete();
         //
         return back()->with('msg', trans('site.msg_d'));
     }

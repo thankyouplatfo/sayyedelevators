@@ -15,6 +15,8 @@ class WelcomeHeaderFactory extends Factory
     {
         return [
             //
+            'path' => $this->faker->imageUrl(1500, 800, null, config('app.name'), null, false),
+            'alt' => $this->faker->realText(255),
         ];
     }
 }

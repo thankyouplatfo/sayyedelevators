@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\WelcomeProject;
 use Illuminate\Database\Seeder;
 
-class ImagesHeaderSeeder extends Seeder
+class WelcomeProjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,5 +15,6 @@ class ImagesHeaderSeeder extends Seeder
     public function run()
     {
         //
+        WelcomeProject::factory(10);
     }
 }

@@ -2,13 +2,38 @@
 @section('content')
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-        <img class="w3-image" src="{{ asset('images/site/architect/image-header.png') }}" alt="Architecture" width="1500"
-            height="800">
-        <div class="w3-display-middle w3-margin-top w3-center w3-padding w3-light-grey w3-opacity-min w3-round">
-            <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>مؤسسة</b></span>
-                <span class="w3-hide-small w3-text-grey">أحمد السيد لمعدات السلامة</span>
-            </h1>
+
+        <div style="height: 800px;width:1500" class="w3-display-container w3-transparent">
+            @foreach ($covers as $cover)
+                <img class="w3-image header"
+                    src="{{ asset(Str::contains($cover->path, ['placeholder.com']) ? $cover->path : asset('storage/' . $cover->path)) }}"
+                    alt="Architecture" style="height: 100%;width:100%">
+            @endforeach
+            <div class="w3-display-middle w3-margin-top w3-center w3-padding w3-light-grey w3-opacity-min w3-round">
+                <h1 class="w3-xxlarge w3-text-white">
+                    <span class="w3-padding w3-black w3-opacity-min">
+                        <b class="w3-hide-small">مؤسسة</b>
+                        <b class="w3-hide-large w3-hide-medium">السيد للمصاعد</b>
+                    </span>
+                    <span class="w3-hide-small w3-text-grey">أحمد السيد لمعدات السلامة</span>
+
+                </h1>
+            </div>
+            <div class="w3-display-hover w3-display-left" style="height: 100%">
+                <button style="height: 100%;" onclick="myHeader.previous()"
+                    class="w3-jumbo hover-me w3-hover-none w3-animate-left">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="w3-display-hover w3-display-right" style="height: 100%">
+                <button style="height: 100%;" onclick="myHeader.next()"
+                    class="w3-jumbo hover-me w3-hover-none w3-animate-right">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
+
+
     </header>
 
     <!-- Page content -->
@@ -153,6 +178,25 @@
         <!-- End page content -->
     </div>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

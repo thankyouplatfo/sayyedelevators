@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\imagesHeader;
+use App\Models\WelcomeProject;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ImagesHeaderPolicy
+class WelcomeProjectPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ImagesHeaderPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  \App\Models\WelcomeProject  $welcomeProject
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, imagesHeader $imagesHeader)
+    public function view(User $user, WelcomeProject $welcomeProject)
     {
         //
     }
@@ -48,10 +48,10 @@ class ImagesHeaderPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  \App\Models\WelcomeProject  $welcomeProject
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, imagesHeader $imagesHeader)
+    public function update(User $user, WelcomeProject $welcomeProject)
     {
         //
     }
@@ -60,10 +60,10 @@ class ImagesHeaderPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  \App\Models\WelcomeProject  $welcomeProject
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, imagesHeader $imagesHeader)
+    public function delete(User $user, WelcomeProject $welcomeProject)
     {
         //
     }
@@ -72,10 +72,10 @@ class ImagesHeaderPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  \App\Models\WelcomeProject  $welcomeProject
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, imagesHeader $imagesHeader)
+    public function restore(User $user, WelcomeProject $welcomeProject)
     {
         //
     }
@@ -84,10 +84,10 @@ class ImagesHeaderPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\imagesHeader  $imagesHeader
+     * @param  \App\Models\WelcomeProject  $welcomeProject
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, imagesHeader $imagesHeader)
+    public function forceDelete(User $user, WelcomeProject $welcomeProject)
     {
         //
     }

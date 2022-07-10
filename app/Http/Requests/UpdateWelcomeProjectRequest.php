@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreimagesHeaderRequest extends FormRequest
+class UpdateWelcomeProjectRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreimagesHeaderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class StoreimagesHeaderRequest extends FormRequest
     {
         return [
             //
+            'path' => 'required|mimes:png,jpg|image',
+            'alt' => 'required|string',
         ];
     }
 }

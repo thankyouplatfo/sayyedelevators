@@ -1,10 +1,12 @@
 @extends('admin.layouts.app')
-@section('title', 'لوحة التحكم - إدارة المحتوى - إدراة محتوى الصفحة الرئيسية - صورة رأس الصفحة')
-@section('page-name', 'لوحة التحكم - إدارة المحتوى - إدراة محتوى الصفحة الرئيسية - صورة رأس الصفحة (تحديث)')
+@section('title', 'لوحة التحكم - إدارة المحتوى - إدراة محتوى الصفحة الرئيسية - المشاريع')
+@section('page-name', 'لوحة التحكم - إدارة المحتوى - إدراة محتوى الصفحة الرئيسية - المشاريع')
+
+
+
 @section('content')
-    <form action="{{ route('headers.update',$header->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('projects.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
         <p class="w3-large">
             <label for="path">الصورة</label>
             <input class="path w3-input" name="path" id="path" type="file" accept="image/*">
@@ -14,7 +16,7 @@
         @enderror
         <p class="w3-large">
             <label for="alt ">النص البديل</label>
-            <textarea class="alt w3-input" name="alt" id="alt" cols="30" rows="10">{{ $header->alt }}</textarea>
+            <textarea class="alt w3-input" name="alt" id="alt" cols="30" rows="10">{{ old('alt') }}</textarea>
         </p>
         @error('path')
             <b class="w3-text-red">{{ $message }}</b>

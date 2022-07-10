@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/w3css/4/w3.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icons/fontawesome-free-6.1.1-web/css/all.min.css') }}">
     <style>
         html,
@@ -62,7 +61,7 @@
                 <i class="fa fa-caret-down w3-left"></i>
             </div>
             <div id="demoAcc" class="w3-hide w3-white w3-card-4">
-                <a href="{{-- route('hesder_images') --}}" class="w3-bar-item w3-button w3-right-align"><i
+                <a href="{{-- route('header_images') --}}" class="w3-bar-item w3-button w3-right-align"><i
                         class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-home"></i> الرئيسية
                     لإدارة المحتوى </a>
                 <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('cms-welcome-page-parts')">
@@ -72,9 +71,9 @@
                 <div id="cms-welcome-page-parts" class="w3-hide w3-white w3-card-4">
                     <a href="{{ route('cms.welcome') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fas w3-margin-left fa-home"></i>الكل</a>
-                    <a href="{{-- route('hesder_images') --}}" class="w3-bar-item w3-button w3-right-align"><i
+                    <a href="{{ route('headers.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fas w3-margin-left fa-image"></i> صور رأس الصفحة</a>
-                    <a href="{{-- route('projects') --}}" class="w3-bar-item w3-button w3-right-align"><i
+                    <a href="{{ route('projects.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-diagram-project"></i> المشاريع</a>
                     <a href="{{-- route('abbut_and_map') --}}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-address-card"></i> عنا وصورة الخريطة</a>
@@ -116,7 +115,12 @@
         <header class="w3-container" style="padding-top:22px">
             <h5><b><i class="fa fa-dashboard"></i> @yield('page-name')</b></h5>
         </header>
-        @yield('content')
+        <div class="w3-container">
+            @if (Session::has('msg'))
+                <p class="w3-panel w3-blue w3-rightbar w3-padding-16">{{ Session::get('msg') }}</p>
+            @endif
+            @yield('content')
+        </div>
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
             <h4>FOOTER</h4>

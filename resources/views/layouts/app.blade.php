@@ -5,15 +5,16 @@
     <title>W3.CSS Template</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{{ asset('css/w3css/4/w3.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icons/fontawesome-free-6.1.1-web/css/all.min.css') }}">
     <style>
         *:not(h1,
             h2,
             h3,
             h4,
             h5,
-            h6) {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important
+            h6, i) {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
         }
 
         h1,
@@ -23,6 +24,32 @@
         h5,
         h6 {
             font-family: "Cairo" !important;
+            color: #11808C !important;
+        }
+
+        #home {
+            font-family: Cairo !important;
+        }
+
+        .hover-me {
+            border: none;
+            display: inline-block;
+            padding: 8px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            background-color: inherit;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap
+        }
+
+        /**/
+        .hover-me:hover {
+            background-image: linear-gradient(to right,
+                    rgba(255, 255, 255, 0.05),
+                    rgba(255, 255, 255, 0.05));
         }
     </style>
 </head>
@@ -30,16 +57,20 @@
 <body class="w3-right-align" dir="rtl">
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
-        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <a href="#home" class="w3-bar-item w3-right w3-button"><b>مؤسسة</b> أحمد السيد لمعدات السلامة</a>
+        <div class="w3-bar w3-white w3-padding w3-card">
+            <a href="{{ route('welcome') }}" id="home" class="w3-bar-item w3-right w3-button">
+                <h1 style="display: inline!important;margin:0!important;padding:0!important;" class="w3-xlarge">
+                    <b style="font-family: 'Cairo' !important;">السيد للمصاعد</b>
+                </h1>
+            </a>
             <!-- Float links to the right. Hide them on small screens -->
             <div class="w3-left w3-hide-small">
-                <a href="#projects" class="w3-bar-item w3-button">المشاريع</a>
-                <a href="#about" class="w3-bar-item w3-button">عنا</a>
-                <a href="#contact" class="w3-bar-item w3-button">اتصل بنا</a>
+                <a href="#projects" class="w3-bar-item w3-button w3-padding-16">المشاريع</a>
+                <a href="#about" class="w3-bar-item w3-button w3-padding-16">عنا</a>
+                <a href="#contact" class="w3-bar-item w3-button w3-padding-16">اتصل بنا</a>
                 @if (Route::has('login'))
                     <div class="w3-dropdown-hover">
-                        <button class="w3-button">الصفحات</button>
+                        <button class="w3-button w3-padding-16">الصفحات</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
                             <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
@@ -48,8 +79,8 @@
                     </div>
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
-                            <a href="{{ url('/home') }}"
-                                class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            {{-- <a href="{{ url('/home') }}"
+                                class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
                         @else
                             <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log
                                 in</a>
@@ -70,7 +101,10 @@
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
                 class="w3-hover-text-green">w3.css</a></p>
     </footer>
-
+    <script src="{{ asset('js/libs/w3.js') }}"></script>
+    <script>
+        myHeader = w3.slideshow('.header', 0)
+    </script>
 </body>
 
 </html>

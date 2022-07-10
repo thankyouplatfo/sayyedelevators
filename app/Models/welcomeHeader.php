@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class welcomeHeader extends Model
 {
     use HasFactory;
+    public $fillable = ['path', 'alt'];
 }
