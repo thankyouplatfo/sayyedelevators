@@ -55,6 +55,8 @@
             {{-- <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align w3-blue"><i
                     class="fa fa-users fa-fw"></i>
                 Overview</a> --}}
+            <a href="{{ route('users.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                    class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-users"></i> المستخدمين </a>
             <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('demoAcc')">
                 <i class="fa-solid w3-margin-left fa-pencil"></i>
                 إدارة المحتوى
@@ -65,7 +67,7 @@
                         class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-home"></i> الرئيسية
                     لإدارة المحتوى </a>
                 <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('cms-welcome-page-parts')">
-                    <i class="fa-solid w3-margin-left fa-house w3-right"></i> الصفحة الرئيسية <i
+                    <i class="fa-solid w3-margin-left fa-house w3-right"></i>الرئيسية <i
                         class="fa fa-caret-down w3-left"></i>
                 </div>
                 <div id="cms-welcome-page-parts" class="w3-hide w3-white w3-card-4">
@@ -75,16 +77,32 @@
                             class="fas w3-margin-left fa-image"></i> صور رأس الصفحة</a>
                     <a href="{{ route('projects.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-diagram-project"></i> المشاريع</a>
-                    <a href="{{-- route('abbut_and_map') --}}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fa-solid w3-margin-left fa-address-card"></i> عنا وصورة الخريطة</a>
+                    <a href="{{ route('about.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                            class="fa-solid w3-margin-left fa-address-card"></i> عنا</a>
                     <a href="{{-- route('team') --}}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-people-group"></i> الفريق</a>
+                    <a href="{{-- route('map') --}}" class="w3-bar-item w3-button w3-right-align"><i
+                            class="fa-solid w3-margin-left fa-people-group"></i> الحصول على الإتجهات</a>
                     <a href="{{-- route('social_media') --}}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-hashtag"></i> التواصل الإجتماعي</a>
                 </div>
             </div>
-
-
+            <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('demoAcc2')">
+                <i class="fa-solid w3-margin-left fa-pencil"></i>
+                الأدوار والصلاحيات
+                <i class="fa fa-caret-down w3-left"></i>
+            </div>
+            <div id="demoAcc2" class="w3-hide w3-white w3-card-4">
+                <a href="{{-- route('header_images') --}}" class="w3-bar-item w3-button w3-right-align">
+                    <i class="fas w3-margin-left fa-home"></i> الرئيسية
+                </a>
+                <a href="{{ route('cms.welcome') }}" class="w3-bar-item w3-button w3-right-align"><i
+                        class="fas w3-margin-left fa-home"></i>الأدوار</a>
+                <a href="{{ route('headers.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                        class="fas w3-margin-left fa-image"></i>الصلاحيات</a>
+                <a href="{{ route('headers.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                        class="fas w3-margin-left fa-image"></i>ربط الأدوار بالصلاحيات</a>
+            </div>
             {{-- <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-eye fa-fw"></i>
                 Views</a>
             <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-users fa-fw"></i>

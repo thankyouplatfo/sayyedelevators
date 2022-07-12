@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('admin_level')->default('2');//0 user 2 admin 3 superAdmin
+            $table->integer('role_id')->default('0');//0 user 2 admin 3 superAdmin
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

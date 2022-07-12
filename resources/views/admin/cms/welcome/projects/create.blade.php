@@ -1,9 +1,6 @@
 @extends('admin.layouts.app')
 @section('title', 'لوحة التحكم - إدارة المحتوى - إدراة محتوى الصفحة الرئيسية - المشاريع')
 @section('page-name', 'لوحة التحكم - إدارة المحتوى - إدراة محتوى الصفحة الرئيسية - المشاريع')
-
-
-
 @section('content')
     <form action="{{ route('projects.store') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -18,7 +15,7 @@
             <label for="alt ">النص البديل</label>
             <textarea class="alt w3-input" name="alt" id="alt" cols="30" rows="10">{{ old('alt') }}</textarea>
         </p>
-        @error('path')
+        @error('alt')
             <b class="w3-text-red">{{ $message }}</b>
         @enderror
         <p class="w3-large">

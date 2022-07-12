@@ -1,0 +1,7 @@
+User
+	role_id
+Profile
+	avatar
+	website
+	bio
+	user_id

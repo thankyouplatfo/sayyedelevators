@@ -45,71 +45,23 @@
         </div>
 
         <div class="w3-row-padding">
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">بيت الصيف</div>
-                    <img src="{{ asset('images/site/project/pro1.png') }}" alt="House" style="width:100%">
+            @foreach ($projects as $project)
+                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topright w3-black w3-padding">{{ $project->alt }}</div>
+                        <img src="{{ asset('storage/' . $project->path) }}" alt="{{ $project->alt }}" style="width:100%">
+                    </div>
                 </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">منزل من الطوب</div>
-                    <img src="{{ asset('images/site/project/pro2.png') }}" alt="House" style="width:100%">
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">تم تجديده</div>
-                    <img src="{{ asset('images/site/project/pro1.png') }}" alt="House" style="width:100%">
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">بيت الحظيرة</div>
-                    <img src="{{ asset('images/site/project/pro2.png') }}" alt="House" style="width:100%">
-                </div>
-            </div>
-        </div>
-
-        <div class="w3-row-padding">
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">بيت الصيف</div>
-                    <img src="{{ asset('images/site/project/pro1.png') }}" alt="House" style="width:100%">
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">بيت من الطوب</div>
-                    <img src="{{ asset('images/site/project/pro2.png') }}" alt="House" style="width:100%">
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">منزل مجدد</div>
-                    <img src="{{ asset('images/site/project/pro1.png') }}" alt="House" style="width:100%">
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                <div class="w3-display-container">
-                    <div class="w3-display-topright w3-black w3-padding">بيت الحظيرة</div>
-                    <img src="{{ asset('images/site/project/pro2.png') }}" alt="House" style="width:100%">
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <!-- About Section -->
         <div class="w3-container w3-padding-32" id="about">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">عنا</h3>
-            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك
-                أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو
-                مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى
-                كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
-                ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن
-                يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.
-                هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى
-                غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.
+            <p class="w3-justify">
+                @foreach ($about as $item)
+                    {{ $item->description }}
+                @endforeach
             </p>
         </div>
 
@@ -160,8 +112,7 @@
                 <input class="w3-input w3-border" type="text" placeholder="الإسم" required name="Name">
                 <input class="w3-input w3-section w3-border" type="text" placeholder="البريد الإلكتروني" required
                     name="Email">
-                <input class="w3-input w3-section w3-border" type="text" placeholder="الموضوع" required
-                    name="Subject">
+                <input class="w3-input w3-section w3-border" type="text" placeholder="الموضوع" required name="Subject">
                 <textarea class="w3-input w3-section w3-border" type="text" placeholder="التعليق" required name="Comment"
                     cols="30" rows="10"></textarea>
                 <button class="w3-button w3-black w3-section" type="submit">

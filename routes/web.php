@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeAboutController;
 use App\Http\Controllers\WelcomeHeaderController;
 use App\Http\Controllers\WelcomePageController;
 use App\Http\Controllers\WelcomeProjectController;
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[WelcomePageController::class,'index'])->name('welcome');
+Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
 //
 Auth::routes();
 //
@@ -27,6 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
+    Route::resource('users', UserController::class);
     Route::prefix('cms')->group(function () {
         Route::get('/', [dashboardController::class, 'cms'])->name('cms');
         Route::prefix('welcome')->group(function () {
@@ -34,6 +37,7 @@ Route::prefix('dashboard')->group(function () {
             //
             Route::resource('headers', WelcomeHeaderController::class);
             Route::resource('projects', WelcomeProjectController::class);
+            Route::resource('about', WelcomeAboutController::class);
         });
     });
 });

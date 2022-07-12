@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Traits\IncModels;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class WelcomePageController extends Controller
+class UserController extends Controller
 {
     use IncModels;
     /**
@@ -15,11 +17,10 @@ class WelcomePageController extends Controller
      */
     public function index()
     {
-        $covers = $this->welcomeHeader->orderBy('id','desc')->paginate(10); 
-        $projects = $this->welcomeProject->orderBy('id','desc')->paginate(8);
-        $about = $this->welcomeAbout->orderBy('id', 'desc')->paginate(10); 
         //
-        return view('welcome', compact('covers','projects','about'));
+        $users = $this->user->orderBy('id', 'desc')->paginate(10);
+        //
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -30,6 +31,7 @@ class WelcomePageController extends Controller
     public function create()
     {
         //
+        return view('admin.users.create');
     }
 
     /**
@@ -40,7 +42,16 @@ class WelcomePageController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+        $request['password'] = Hash::make('password');
         //
+        $this->user->create($request->only('name', 'email', 'password'));
+        //
+        return back()->with('msg', trans('site.msg_c'));
     }
 
     /**
@@ -60,9 +71,10 @@ class WelcomePageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -74,7 +86,16 @@ class WelcomePageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+        $request['password'] = Hash::make('password');
         //
+        $this->user->find($id)->update($request->only('name', 'email', 'password'));
+        //
+        return back()->with('msg', trans('site.msg_u'));
     }
 
     /**
@@ -86,5 +107,8 @@ class WelcomePageController extends Controller
     public function destroy($id)
     {
         //
+        $this->user->find($id)->delete();
+        //
+        return back()->with('msg', trans('site.msg_d'));
     }
 }

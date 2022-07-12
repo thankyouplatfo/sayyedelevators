@@ -22,18 +22,18 @@
                         {{ $project->id }}
                     </td>
                     <td
-                        style="background-project: url({{ Str::contains($project->path, ['placeholder.com']) ? $project->path : asset('storage/' . $project->path) }});background-size:100% 100%;height:125px">
+                        style="background-image: url({{ Str::contains($project->path, ['placeholder.com']) ? $project->path : asset('storage/' . $project->path) }});background-size:100% 100%;height:125px">
                     </td>
                     <td class="w3-center">
                         {{ $project->alt }}
                     </td>
 
                     <td class="w3-center">
-                        <a href="{{ route('projects.show', $project->id) }}" target="_blank" class="w3-button w3-blue"><i
+                        <a href="{{ route('headers.show', $project->id) }}" target="_blank" class="w3-button w3-blue"><i
                                 class="fas fa-eye"></i></a>
                     </td>
                     <td class="w3-center">
-                        <a href="{{ route('projects.edit', $project->id) }}" class="w3-button w3-yellow"><i
+                        <a href="{{ route('headers.edit', $project->id) }}" class="w3-button w3-yellow"><i
                                 class="fas fa-pencil"></i></a>
                     </td>
                     <td class="w3-center">
@@ -41,7 +41,7 @@
                                 class="fa-solid fa-trash"></i>
                         </button>
                     </td>
-                    <form action="{{ route('projects.destroy', $project->id) }}" id="destroy-header{{ $project->id }}"
+                    <form action="{{ route('headers.destroy', $project->id) }}" id="destroy-header{{ $project->id }}"
                         method="post">
                         @csrf
                         @method('DELETE')

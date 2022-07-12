@@ -48,9 +48,9 @@ class WelcomeProjectController extends Controller
         $data = $request->validated();
         $data['path'] = $this->uploadImage($request->path);
         //
-        $this->welcomeProject = WelcomeProject::create($request->data);
+        $this->welcomeProject = WelcomeProject::create($data);
         //
-        return back()->with('smg', trans('site.msg_c'));
+        return back()->with('msg', trans('site.msg_c'));
     }
 
     /**
@@ -73,7 +73,7 @@ class WelcomeProjectController extends Controller
     public function edit(WelcomeProject $project)
     {
         //
-        return view('admin.cms.welcome.projects.edit', compact('welcomeProject'));
+        return view('admin.cms.welcome.projects.edit', compact('project'));
     }
 
     /**
@@ -93,7 +93,7 @@ class WelcomeProjectController extends Controller
             $data['path'] = $this->uploadImage($request->path);
         }
         //
-        $this->welcomeHeader = $project->find($project->id)->update($data);
+        $this->welcomeProject = $project->find($project->id)->update($data);
         //
         return back()->with('msg', trans('site.msg_u'));
     }
@@ -110,7 +110,7 @@ class WelcomeProjectController extends Controller
         //
         Storage::disk('public')->delete($project->cover_image);
         //
-        $this->welcomeHeader->find($project->id)->delete();
+        $this->welcomeProject->find($project->id)->delete();
         //
         return back()->with('msg', trans('site.msg_d'));
     }
