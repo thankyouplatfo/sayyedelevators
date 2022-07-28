@@ -72,24 +72,29 @@
                     <div class="w3-dropdown-hover">
                         <button class="w3-button w3-padding-16">الصفحات</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
-                            <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
-                            <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
-                        </div>
-                    </div>
-                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                        @auth
-                            {{-- <a href="{{ url('/home') }}"
-                                class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
-                        @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log
-                                in</a>
+                            @admin
+                                <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
+                            @endadmin
+                            @auth
+                                <a class="w3-bar-item w3-button" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
-                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                            @endif
-                        @endauth
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">
+                                    تسجيل الدخول </a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}"
+                                        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"> التسجيل </a>
+                                @endif
+                            @endauth
+                        </div>
                     </div>
                 @endif
             </div>

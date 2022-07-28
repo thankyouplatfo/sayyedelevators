@@ -17,9 +17,11 @@ class WelcomePageController extends Controller
     {
         $covers = $this->welcomeHeader->orderBy('id','desc')->paginate(10); 
         $projects = $this->welcomeProject->orderBy('id','desc')->paginate(8);
-        $about = $this->welcomeAbout->orderBy('id', 'desc')->paginate(10); 
+        $about = $this->welcomeAbout->orderBy('id', 'desc')->paginate(1); 
+        $users = $this->user->orderBy('id', 'desc')->paginate(4);
+        $contact_us = $this->contactus->orderBy('id'.'desc')->paginate(1); 
         //
-        return view('welcome', compact('covers','projects','about'));
+        return view('welcome', compact('covers','projects','about','users','contact_us'));
     }
 
     /**

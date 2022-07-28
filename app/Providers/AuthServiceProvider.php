@@ -25,15 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //Permission
-        //Permission::get(['title'])->map(function ($permission) {
-        //    Gate::define($permission->title, function ($user) use ($permission) {
-        //        return $user->hasAllow($permission->title);
-        //    });
-        //});
-
-        Gate::define('cms-admin',function($user){
-            return $user->isSuperAdmin();
+        Gate::define('delete-user',function($user){
+            return $user->hasAllow('delete-user');
         });
     }
 }

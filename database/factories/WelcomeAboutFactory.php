@@ -15,6 +15,7 @@ class WelcomeAboutFactory extends Factory
     {
         return [
             //
+            'description' => $this->faker->realText(1250),
         ];
     }
 }

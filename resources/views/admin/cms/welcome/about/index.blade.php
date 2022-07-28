@@ -20,8 +20,8 @@
                     <td class="w3-center">
                         {{ $about->id }}
                     </td>
-                    <td class="w3-center">
-                        {{ $about->alt }}
+                    <td class="w3-right-align" dir="rtl">
+                        {{ Str::limit($about->description, 255, '...') }}
                     </td>
 
                     <td class="w3-center">

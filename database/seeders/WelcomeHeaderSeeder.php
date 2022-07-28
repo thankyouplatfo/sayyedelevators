@@ -15,6 +15,6 @@ class WelcomeHeaderSeeder extends Seeder
     public function run()
     {
         //
-        welcomeHeader::factory(10);
+        welcomeHeader::factory(10)->create();
     }
 }

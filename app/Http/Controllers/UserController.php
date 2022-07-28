@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Http\Requests\StoreUserRequest;
 use App\Traits\IncModels;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = $this->user->orderBy('id', 'desc')->paginate(10);
+        $users = $this->user->with('role')->latest()->paginate(10);
         //
         return view('admin.users.index', compact('users'));
     }
@@ -30,8 +30,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles = $this->role->latest()->get();
         //
-        return view('admin.users.create');
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -40,18 +41,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-        $request['password'] = Hash::make('password');
         //
-        $this->user->create($request->only('name', 'email', 'password'));
+        $request['password'] = Hash::make($request->password);
+        $this->user->create($request->all());
         //
-        return back()->with('msg', trans('site.msg_c'));
+        return back()->with('msg',trans('site.msg_c'));
     }
 
     /**
@@ -63,6 +59,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        return view('admin.users.show',compact('id'));
     }
 
     /**
@@ -71,10 +68,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
-        return view('admin.users.edit', compact('user'));
+        return view('admin.users.edit',compact('id'));
     }
 
     /**
@@ -86,16 +83,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-        $request['password'] = Hash::make('password');
         //
-        $this->user->find($id)->update($request->only('name', 'email', 'password'));
+        if ($request->has('password')) {
+            # code...
+            $request['password'] = Hash::make($request->password);
+        }
+        $this->user->update($request->except('password'));
         //
-        return back()->with('msg', trans('site.msg_u'));
+        return back()->with('msg',trans('site.msg_u'));
     }
 
     /**
@@ -107,8 +102,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        $this->user->find($id)->delete();
+        $this->user->delete($id);
         //
-        return back()->with('msg', trans('site.msg_d'));
+        return back()->with('msg',trans('site.msg_d')); 
     }
 }

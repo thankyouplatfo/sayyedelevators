@@ -15,6 +15,6 @@ class WelcomeProjectSeeder extends Seeder
     public function run()
     {
         //
-        WelcomeProject::factory(10);
+        WelcomeProject::factory(10)->create();
     }
 }

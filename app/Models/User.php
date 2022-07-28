@@ -19,7 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'admin_level',
+        'role_id',
+        'type',
         'email',
         'password',
     ];
@@ -43,9 +44,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     //
-    public function isSuperAdmin()
+    public function role()
     {
         # code...
-        return $this->admin_level > 1 ? true : false;
+        return $this->belongsTo(Role::class,'role_id');
+    }
+    //
+    public function isAdmin()
+    {
+        # code...
+        return $this->role->id == 1;
+    }
+    //
+    public function hasAllow($permission)
+    {
+        # code...
     }
 }

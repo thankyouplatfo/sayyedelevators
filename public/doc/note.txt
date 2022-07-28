@@ -1,7 +1,26 @@
 User
+	name
+	email
 	role_id
+	password
 Profile
 	avatar
 	website
 	bio
-	user_id
+UserProfile
+	avatar
+	name
+	bio
+	email
+	role_id
+adminsEmails
+	Ah_Sa001@sayye4elevators.com
+	Ah_Bu002@sayye4elevators.com
+	Ma_Ma003@sayye4elevators.com
+	Mo_Ma004@sayye4elevators.com
+Permissions
+	desc
+	name
+Permission_role
+	permission_id
+	role_id

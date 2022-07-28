@@ -5,6 +5,8 @@
     <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!--style-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{{ asset('css/w3css/4/w3.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icons/fontawesome-free-6.1.1-web/css/all.min.css') }}">
@@ -56,7 +58,8 @@
                     class="fa fa-users fa-fw"></i>
                 Overview</a> --}}
             <a href="{{ route('users.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                    class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-users"></i> المستخدمين </a>
+                    class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-users"></i> المستخدمين
+            </a>
             <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('demoAcc')">
                 <i class="fa-solid w3-margin-left fa-pencil"></i>
                 إدارة المحتوى
@@ -79,10 +82,8 @@
                             class="fa-solid w3-margin-left fa-diagram-project"></i> المشاريع</a>
                     <a href="{{ route('about.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-address-card"></i> عنا</a>
-                    <a href="{{-- route('team') --}}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fa-solid w3-margin-left fa-people-group"></i> الفريق</a>
-                    <a href="{{-- route('map') --}}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fa-solid w3-margin-left fa-people-group"></i> الحصول على الإتجهات</a>
+                    <a href="{{ route('contact_us.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                            class="fa-solid w3-margin-left fa-people-group"></i> تواصل معنا</a>
                     <a href="{{-- route('social_media') --}}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-hashtag"></i> التواصل الإجتماعي</a>
                 </div>
@@ -93,14 +94,14 @@
                 <i class="fa fa-caret-down w3-left"></i>
             </div>
             <div id="demoAcc2" class="w3-hide w3-white w3-card-4">
-                <a href="{{-- route('header_images') --}}" class="w3-bar-item w3-button w3-right-align">
+                {{-- <a href="{{-- route('header_images')" class="w3-bar-item w3-button w3-right-align">
                     <i class="fas w3-margin-left fa-home"></i> الرئيسية
-                </a>
-                <a href="{{ route('cms.welcome') }}" class="w3-bar-item w3-button w3-right-align"><i
+                </a> --}}
+                <a href="{{ route('roles.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                         class="fas w3-margin-left fa-home"></i>الأدوار</a>
-                <a href="{{ route('headers.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                <a href="{{ route('permissions.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                         class="fas w3-margin-left fa-image"></i>الصلاحيات</a>
-                <a href="{{ route('headers.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                <a href="{{ route('permission_roles.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                         class="fas w3-margin-left fa-image"></i>ربط الأدوار بالصلاحيات</a>
             </div>
             {{-- <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-eye fa-fw"></i>
@@ -179,6 +180,7 @@
             }
         }
     </script>
+    <script src="{{ asset('js/libs/jq.js') }}"></script>
     @yield('script')
 </body>
 
