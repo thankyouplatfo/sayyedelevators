@@ -1,0 +1,7 @@
+Communication
+communication
+	welcome_phrase
+	city_id
+	country_id
+	phone
+	email

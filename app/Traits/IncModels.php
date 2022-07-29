@@ -2,12 +2,12 @@
 
 namespace App\Traits;
 
-use App\Models\{welcomeHeader, welcomeProject, WelcomeAbout,User,Role,permission,PermissionRole,ContactUs};
+use App\Models\{welcomeHeader, welcomeProject, WelcomeAbout,User,Role,permission,PermissionRole,Communication};
 
 trait IncModels
 {
     //
-    public function __construct(welcomeHeader $welcomeHeader, welcomeProject $welcomeProject, WelcomeAbout $welcomeAbout, User $user,Role $role,permission $permission,PermissionRole $permissionRole,ContactUs $contactus)
+    public function __construct(welcomeHeader $welcomeHeader, welcomeProject $welcomeProject, WelcomeAbout $welcomeAbout, User $user,Role $role,permission $permission,PermissionRole $permissionRole,Communication $communication)
     {
         $this->welcomeHeader = $welcomeHeader;
         $this->welcomeProject = $welcomeProject;
@@ -16,6 +16,6 @@ trait IncModels
         $this->role = $role;
         $this->permission = $permission;
         $this->permissionRole = $permissionRole;
-        $this->contactus = $contactus;
+        $this->communication = $communication;
     }
 }

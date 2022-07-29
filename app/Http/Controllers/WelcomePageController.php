@@ -19,9 +19,9 @@ class WelcomePageController extends Controller
         $projects = $this->welcomeProject->orderBy('id','desc')->paginate(8);
         $about = $this->welcomeAbout->orderBy('id', 'desc')->paginate(1); 
         $users = $this->user->orderBy('id', 'desc')->paginate(4);
-        $contact_us = $this->contactus->orderBy('id'.'desc')->paginate(1); 
+        $communications = $this->communication->orderBy('id','desc')->paginate(1); 
         //
-        return view('welcome', compact('covers','projects','about','users','contact_us'));
+        return view('welcome', compact('covers','projects','about','users','communications'));
     }
 
     /**

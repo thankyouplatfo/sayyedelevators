@@ -34,16 +34,16 @@
             @enderror
         </p>
         <p>
-            <label for="mobile_number">رقم الجوال</label>
-            <input class="w3-input mobile_number" name="mobile_number" id="mobile_number">
-            @error('mobile_number')
+            <label for="phone">رقم الجوال</label>
+            <input class="w3-input phone" name="phone" id="phone">
+            @error('phone')
                 <b class="w3-text-red">{{ $message }}</b>
             @enderror
         </p>
         <p>
-            <label for="e_mail">البريد الإلكتروني</label>
-            <input class="w3-input e_mail" name="e_mail" id="e_mail">
-            @error('e_mail')
+            <label for="email">البريد الإلكتروني</label>
+            <input class="w3-input email" name="email" id="email">
+            @error('email')
                 <b class="w3-text-red">{{ $message }}</b>
             @enderror
         </p>

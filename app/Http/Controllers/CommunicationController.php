@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContactUs;
-use App\Http\Requests\StoreContactUsRequest;
-use App\Http\Requests\UpdateContactUsRequest;
+use App\Models\Communication;
+use App\Http\Requests\StoreCommunicationRequest;
+use App\Http\Requests\UpdateCommunicationRequest;
 use App\Models\Cities;
 use App\Models\Country;
-use App\Traits\IncModels;
 
-class ContactUsController extends Controller
+class CommunicationController extends Controller
 {
-    use IncModels;
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +18,7 @@ class ContactUsController extends Controller
     public function index()
     {
         //
-        $contact_us = $this->contactus->orderBy('id'.'desc')->paginate(10);
+        $contact_us = $this->communication->orderBy('id'.'desc')->paginate(10);
         //
         return view('admin.cms.welcome.contact_us.index', compact('contact_us'));
     }
@@ -32,6 +30,7 @@ class ContactUsController extends Controller
      */
     public function create()
     {
+        //
         $countries = Country::all();
         $cities = Cities::all();
         //
@@ -41,13 +40,13 @@ class ContactUsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreContactUsRequest  $request
+     * @param  \App\Http\Requests\StoreCommunicationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreContactUsRequest $request)
+    public function store(StoreCommunicationRequest $request)
     {
         //
-        $this->contactus->create($request->all());
+        $this->communication->create($request->all());
         //
         return back()->with('msg', trans('site.author_c'));
     }
@@ -55,10 +54,10 @@ class ContactUsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ContactUs  $contactUs
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Http\Response
      */
-    public function show(ContactUs $contactUs)
+    public function show(Communication $communication)
     {
         //
     }
@@ -66,26 +65,27 @@ class ContactUsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ContactUs  $contactUs
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactUs $contactUs)
+    public function edit(Communication $communication)
     {
         //
-        return view('admin.cms.welcome.contact_us.edit', compact('contactUs'));
+        return view('admin.cms.welcome.contact_us.edit', compact('communication'));
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateContactUsRequest  $request
-     * @param  \App\Models\ContactUs  $contactUs
+     * @param  \App\Http\Requests\UpdateCommunicationRequest  $request
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateContactUsRequest $request, ContactUs $contactUs)
+    public function update(UpdateCommunicationRequest $request, Communication $communication)
     {
         //
-        $this->contactus->find($contactUs->id)->update($request->all());
+        $this->communication->find($communication->id)->update($request->all());
         //
         return back()->with('msg', trans('site.author_u'));
     }
@@ -93,13 +93,13 @@ class ContactUsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ContactUs  $contactUs
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactUs $contactUs)
+    public function destroy(Communication $communication)
     {
         //
-        $this->contactus->find($contactUs->id)->delete();
+        $this->communication->find($communication->id)->delete();
         //
         return back()->with('msg', trans('site.author_d'));
     }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreContactUsRequest extends FormRequest
+class UpdateCommunicationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,7 @@ class StoreContactUsRequest extends FormRequest
             'city_id' => 'integer',
             'country_id' => 'integer',
             'phone' => 'required|numeric|max:11|min:3',
-            'email' => 'required|string|max:255|min:3|unique:contact_us|email',
+            'email' => 'required|string|max:255|min:3|email',
         ];
     }
 }

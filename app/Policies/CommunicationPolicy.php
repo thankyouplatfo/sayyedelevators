@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\ContactUs;
+use App\Models\Communication;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ContactUsPolicy
+class CommunicationPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ContactUsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactUs  $communication
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, ContactUs $communication)
+    public function view(User $user, Communication $communication)
     {
         //
     }
@@ -48,10 +48,10 @@ class ContactUsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactUs  $communication
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, ContactUs $communication)
+    public function update(User $user, Communication $communication)
     {
         //
     }
@@ -60,10 +60,10 @@ class ContactUsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactUs  $communication
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, ContactUs $communication)
+    public function delete(User $user, Communication $communication)
     {
         //
     }
@@ -72,10 +72,10 @@ class ContactUsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactUs  $communication
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, ContactUs $communication)
+    public function restore(User $user, Communication $communication)
     {
         //
     }
@@ -84,10 +84,10 @@ class ContactUsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContactUs  $communication
+     * @param  \App\Models\Communication  $communication
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, ContactUs $communication)
+    public function forceDelete(User $user, Communication $communication)
     {
         //
     }

@@ -70,43 +70,43 @@
                 @endif
             @endforeach
             <!--
-                                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                    <img src="{{ asset('images/site/team/1.png') }}" alt="John" style="width:100%">
-                                    <h3>م/أحمد السيد</h3>
-                                    <p class="w3-opacity">مدير عام المؤسسة</p>
-                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                        التطبيق.</p>
-                                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                </div>
-                                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                    <img src="{{ asset('images/site/team/2.png') }}" alt="Jane" style="width:100%">
-                                    <h3>م/أحمد بشرى</h3>
-                                    <p class="w3-opacity">مدير الفنيين</p>
-                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                        التطبيق.</p>
-                                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                </div>
-                                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                    <img src="{{ asset('images/site/team/1.png') }}" alt="Mike" style="width:100%">
-                                    <h3>م/مهدي المشكلي</h3>
-                                    <p class="w3-opacity">مدير ميداني</p>
-                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                        التطبيق.</p>
-                                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                </div>
-                                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                    <img src="{{ asset('images/site/team/2.png') }}" alt="Dan" style="width:100%">
-                                    <h3>معتز المشكلي</h3>
-                                    <p class="w3-opacity">مسؤول التقنية ولإعلام الجديد</p>
-                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                        التطبيق.</p>
-                                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                </div>
-                                -->
+                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                                        <img src="{{ asset('images/site/team/1.png') }}" alt="John" style="width:100%">
+                                        <h3>م/أحمد السيد</h3>
+                                        <p class="w3-opacity">مدير عام المؤسسة</p>
+                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                            التطبيق.</p>
+                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                                    </div>
+                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                                        <img src="{{ asset('images/site/team/2.png') }}" alt="Jane" style="width:100%">
+                                        <h3>م/أحمد بشرى</h3>
+                                        <p class="w3-opacity">مدير الفنيين</p>
+                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                            التطبيق.</p>
+                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                                    </div>
+                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                                        <img src="{{ asset('images/site/team/1.png') }}" alt="Mike" style="width:100%">
+                                        <h3>م/مهدي المشكلي</h3>
+                                        <p class="w3-opacity">مدير ميداني</p>
+                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                            التطبيق.</p>
+                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                                    </div>
+                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                                        <img src="{{ asset('images/site/team/2.png') }}" alt="Dan" style="width:100%">
+                                        <h3>معتز المشكلي</h3>
+                                        <p class="w3-opacity">مسؤول التقنية ولإعلام الجديد</p>
+                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                            التطبيق.</p>
+                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                                    </div>
+                                    -->
         </div>
 
         <!-- Contact Container -->
@@ -115,20 +115,25 @@
                 <div class="w3-col m12 w3-center">
                     <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">أتصل بنا</span></div>
                     <h3>العناوين</h3>
-                         <p class="w3-large">
-                            {{ 'Swing by for a cup of coffee, or whatever.' }}
+                    @foreach ($communications as $communication)
+                        <p class="w3-large">
+                            {{ $communication->welcome_phrase }}
                         </p>
                         <p class="w3-large">
                             <i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>
-                            <a href="{{ '' }}">{{ 'Chicago, US' }}</a> - <small><i>انقر للحصول على الإتجاهات</i></small>
+                            <a href="{{ '' }}">{{ $communication->country->name }}</a> - <small><i>انقر للحصول على
+                                    الإتجاهات</i></small>
                         </p>
                         <p class="w3-large"><i class="fa fa-phone w3-text-teal w3-xlarge"></i>
-                            <a href="{{ '+00 1515151515' }}">{{ '+00 1515151515' }}</a> - <small><i>انقر للإتصال</i></small>
+                            <a href="{{ '+00 1515151515' }}">{{ '+00 1515151515' }}</a> - <small><i>انقر
+                                    للإتصال</i></small>
                         </p>
                         <p class="w3-large"><i class="fa-regular fa-envelope w3-text-teal w3-xlarge"></i>
-                            <a href="mailto:{{ 'test@test.com' }}">{{ 'test@test.com' }}</a> - <small><i>انقر لإرسال بريد إلكتروني</i></small>
+                            <a href="mailto:{{ 'test@test.com' }}">{{ 'test@test.com' }}</a> - <small><i>انقر لإرسال بريد
+                                    إلكتروني</i></small>
                         </p>
-                 </div>
+                    @endforeach
+                </div>
                 <div class="w3-col m7 w3-right w3-hide">
                     <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
                         <div class="w3-section">
@@ -150,7 +155,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- End page content -->
     </div>
 @endsection

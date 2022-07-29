@@ -28,8 +28,8 @@
                     <td class="w3-center">{{ $contactus->welcome_phrase }}</td>
                     <td class="w3-center">{{ $contactus->city->name }}</td>
                     <td class="w3-center">{{ $contactus->country->name }}</td>
-                    <td class="w3-center">{{ $contactus->mobile_number }}</td>
-                    <td class="w3-center">{{ $contactus->e_mail }}</td>
+                    <td class="w3-center">{{ $contactus->phone }}</td>
+                    <td class="w3-center">{{ $contactus->email }}</td>
                     <td class="w3-center">
                         <a href="{{ route('contactus.show', $contactus->id) }}" target="_blank" class="w3-button w3-blue"><i
                                 class="fas fa-eye"></i></a>
