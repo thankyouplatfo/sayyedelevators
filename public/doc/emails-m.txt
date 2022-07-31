@@ -1,0 +1,31 @@
+Engineer Ahmed El Sayed
+Engineer Mostafa Nasr
+Engineer Ahmed Bushra
+Engineer Mahdi Al-Mashkli
+Moataz Al-Mashli
+Technician Yasser Magdy
+Ammar Al-Shurmani technician
+//
+المهندس/ احمد السيد
+المهندس/ مصطفى نصر
+المهندس/ احمد بشرى
+المهندس/ مهدي المشكلي
+معتز المشلي
+الفني/ ياسر مجدي
+الفني/ عمار الشرماني
+//
+E.Ah.Sa@se.com
+E.Mos.Nasr@se.com
+E.Ah.Bush@se.com
+E.Mah.Mash@se.com
+M.M@se.com
+T.Ya.Ma@se.com
+T.Am.Sh@se.com
+//
+e.ah.sa@se.com
+e.mos.nasr@se.com
+e.ah.bush@se.com
+e.mah.mash@se.com
+m.m@se.com
+t.ya.ma@se.com
+t.am.sh@se.com

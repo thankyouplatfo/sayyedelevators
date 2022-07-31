@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="w3-quarter w3-right">
-            <div class="w3-container w3-right-align w3-teal w3-padding-16">
+            <div class="w3-container w3-right-align w3-black w3-padding-16">
                 <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
                 <div class="w3-right">
                     <h3>23</h3>

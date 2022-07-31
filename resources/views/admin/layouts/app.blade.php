@@ -65,15 +65,15 @@
                 إدارة المحتوى
                 <i class="fa fa-caret-down w3-left"></i>
             </div>
-            <div id="demoAcc" class="w3-hide w3-white w3-card-4">
-                <a href="{{-- route('header_images') --}}" class="w3-bar-item w3-button w3-right-align"><i
-                        class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-home"></i> الرئيسية
-                    لإدارة المحتوى </a>
+            <div id="demoAcc" class="w3-hide w3-white w3-card-4"  style="padding-right: 12.5px">
+                {{-- <a href="" class="w3-bar-item w3-button w3-right-align"><i
+                    class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-home"></i> الرئيسية
+                    لإدارة المحتوى </a> --}}
                 <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('cms-welcome-page-parts')">
                     <i class="fa-solid w3-margin-left fa-house w3-right"></i>الرئيسية <i
                         class="fa fa-caret-down w3-left"></i>
                 </div>
-                <div id="cms-welcome-page-parts" class="w3-hide w3-white w3-card-4">
+                <div id="cms-welcome-page-parts" class="w3-hide w3-white w3-card-4" style="padding-right: 25px">
                     <a href="{{ route('cms.welcome') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fas w3-margin-left fa-home"></i>الكل</a>
                     <a href="{{ route('headers.index') }}" class="w3-bar-item w3-button w3-right-align"><i
@@ -82,9 +82,9 @@
                             class="fa-solid w3-margin-left fa-diagram-project"></i> المشاريع</a>
                     <a href="{{ route('about.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-address-card"></i> عنا</a>
-                    <a href="{{ route('contact_us.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                    <a href="{{ route('communications.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-people-group"></i> تواصل معنا</a>
-                    <a href="{{-- route('social_media') --}}" class="w3-bar-item w3-button w3-right-align"><i
+                    <a href="{{ route('media.index') }}" class="w3-bar-item w3-button w3-right-align"><i
                             class="fa-solid w3-margin-left fa-hashtag"></i> التواصل الإجتماعي</a>
                 </div>
             </div>

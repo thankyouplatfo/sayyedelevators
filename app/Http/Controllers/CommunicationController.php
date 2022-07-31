@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Communication;
 use App\Http\Requests\StoreCommunicationRequest;
 use App\Http\Requests\UpdateCommunicationRequest;
-use App\Models\Cities;
+use App\Models\City;
 use App\Models\Country;
+use App\Traits\IncModels;
 
 class CommunicationController extends Controller
 {
+    use IncModels;
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +20,9 @@ class CommunicationController extends Controller
     public function index()
     {
         //
-        $contact_us = $this->communication->orderBy('id'.'desc')->paginate(10);
+        $communications = $this->communication->orderBy('id', 'desc')->paginate(10);
         //
-        return view('admin.cms.welcome.contact_us.index', compact('contact_us'));
+        return view('admin.cms.welcome.communications.index', compact('communications'));
     }
 
     /**
@@ -32,9 +34,9 @@ class CommunicationController extends Controller
     {
         //
         $countries = Country::all();
-        $cities = Cities::all();
+        $cities = City::all();
         //
-        return view('admin.cms.welcome.contact_us.create',compact('countries','cities'));
+        return view('admin.cms.welcome.communications.create', compact('countries', 'cities'));
     }
 
     /**
@@ -48,7 +50,7 @@ class CommunicationController extends Controller
         //
         $this->communication->create($request->all());
         //
-        return back()->with('msg', trans('site.author_c'));
+        return back()->with('msg', trans('site.msg_c'));
     }
 
     /**
@@ -71,8 +73,10 @@ class CommunicationController extends Controller
     public function edit(Communication $communication)
     {
         //
-        return view('admin.cms.welcome.contact_us.edit', compact('communication'));
-
+        $countries = Country::all();
+        $cities = City::all();
+        //
+        return view('admin.cms.welcome.communications.edit', compact('communication', 'countries', 'cities'));
     }
 
     /**
@@ -87,7 +91,7 @@ class CommunicationController extends Controller
         //
         $this->communication->find($communication->id)->update($request->all());
         //
-        return back()->with('msg', trans('site.author_u'));
+        return back()->with('msg', trans('site.msg_u'));
     }
 
     /**
@@ -101,6 +105,6 @@ class CommunicationController extends Controller
         //
         $this->communication->find($communication->id)->delete();
         //
-        return back()->with('msg', trans('site.author_d'));
+        return back()->with('msg', trans('site.msg_d'));
     }
 }

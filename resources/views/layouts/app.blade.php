@@ -24,7 +24,7 @@
         h5,
         h6 {
             font-family: "Cairo" !important;
-            color: #11808C !important;
+            /*color: #11808C !important;*/
         }
 
         #home {
@@ -54,61 +54,83 @@
     </style>
 </head>
 
-<body class="w3-right-align" dir="rtl">
+<body class="w3-right-align" dir="rtl" id="myPage">
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
         <div class="w3-bar w3-white w3-padding w3-card">
-            <a href="{{ route('welcome') }}" id="home" class="w3-bar-item w3-right w3-button">
-                <h1 style="display: inline!important;margin:0!important;padding:0!important;" class="w3-xlarge">
-                    <b style="font-family: 'Cairo' !important;">السيد للمصاعد</b>
+            <a href="{{ route('welcome') }}" id="home" class="w3-bar-item w3-right w3-button"
+                style="margin:0!important;padding:0 8px!important;">
+                <h1 style="display: inline!important;margin:0!important;padding:0!important;">
+                    <b style="font-family: 'Cairo' !important;margin:0!important;padding:0!important"
+                        class="w3-xxlarge">السيد </b>
+                    <span class="w3-xlarge"
+                        style="font-family: 'Cairo' !important;margin:0!important;padding:0!important">للمصاعد</span>
                 </h1>
             </a>
-            <!-- Float links to the right. Hide them on small screens -->
-            <div class="w3-left w3-hide-small">
-                <a href="#projects" class="w3-bar-item w3-button w3-padding-16">المشاريع</a>
-                <a href="#about" class="w3-bar-item w3-button w3-padding-16">عنا</a>
-                <a href="#contact" class="w3-bar-item w3-button w3-padding-16">اتصل بنا</a>
+            <!--sidebar-->
+            <div class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+                style="display:none;right:0!important;width:300px;margin-top:-10px!important" id="rightMenu">
+                <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">إغلاق &times;</button>
+                <p class="w3-xlarge w3-container" style="font-family:'Cairo'!important;">الصفحات</p>
                 @if (Route::has('login'))
-                    <div class="w3-dropdown-hover">
-                        <button class="w3-button w3-padding-16">الصفحات</button>
-                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            @admin
-                                <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
-                            @endadmin
-                            @auth
-                                <a class="w3-bar-item w3-button" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                    @admin
+                        <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
+                    @endadmin
+                    @auth
+                        <a class="w3-bar-item w3-button w3-right-align" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            @else
-                                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">
-                                    تسجيل الدخول </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="w3-bar-item w3-button w3-right-align">
+                            تسجيل الدخول </a>
 
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"> التسجيل </a>
-                                @endif
-                            @endauth
-                        </div>
-                    </div>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="w3-bar-item w3-button w3-right-align"> التسجيل </a>
+                        @endif
+                    @endauth
                 @endif
+            </div>
+            <!-- Float links to the right. Hide them on small screens -->
+            <div class="w3-left">
+                <a href="#projects" class="w3-bar-item w3-button w3-right w3-hide-small w3-padding-16">المشاريع</a>
+                <a href="#about" class="w3-bar-item w3-button w3-right w3-hide-small w3-padding-16">عنا</a>
+                <a href="#contact" class="w3-bar-item w3-button w3-right w3-hide-small w3-padding-16">اتصل بنا</a>
+                <button class="w3-button w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button>
             </div>
         </div>
     </div>
     @yield('content')
     <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-16">
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                class="w3-hover-text-green">w3.css</a></p>
+    <footer class="w3-container w3-padding-32 w3-black w3-center">
+        <h4 class="w3-xxlarge">تابعنا</h4>
+        @include('partials.media')
+        <!---->
+        <p>تشكر مؤسسة {{ config('app.name') }} موقع <a href="https://www.w3schools.com/w3css/default.asp"
+                target="_blank">w3.css</a> على إتاحته هذا القالب مجانا كما قام بتعديل هذا القالب وتطويره/ <a href="https://www.facebook.com/almashkliabualeiz/">معتز المشكلي</a></p>
+        <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+            <span class="w3-text w3-padding w3-black w3-hide-small">إلى الأعلى</span>
+            <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+                    <i class="fa fa-chevron-circle-up"></i></span></a>
+        </div>
     </footer>
+
     <script src="{{ asset('js/libs/w3.js') }}"></script>
     <script>
         myHeader = w3.slideshow('.header', 0)
+
+        function openRightMenu() {
+            document.getElementById("rightMenu").style.display = "block";
+        }
+
+        function closeRightMenu() {
+            document.getElementById("rightMenu").style.display = "none";
+        }
     </script>
 </body>
 

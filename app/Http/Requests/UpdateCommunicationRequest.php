@@ -25,11 +25,12 @@ class UpdateCommunicationRequest extends FormRequest
     {
         return [
             //
-            'welcome_phrase' => 'required|string|max:255|min:3',
+            'welcome' => 'required|string|max:255|min:3',
             'city_id' => 'integer',
             'country_id' => 'integer',
-            'phone' => 'required|numeric|max:11|min:3',
-            'email' => 'required|string|max:255|min:3|email',
+            'url' => 'required|url',
+            'phone' => 'required|numeric',
+            'email' => 'required|string|max:255|min:8|email',
         ];
     }
 }

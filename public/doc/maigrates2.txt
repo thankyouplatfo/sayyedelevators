@@ -1,0 +1,48 @@
+users
+	"id",
+     "name",
+     "email",
+     "role_id",
+     "type",
+     "password",
+	//
+	"image"
+	"bio"
+	"website"
+welcome_headers
+	"path",
+	"alt",
+welcome_projects
+	"path",
+	"alt",
+welcome_abouts
+	"about"
+roles
+	"name"
+مدير عام
+مدير 
+مهندس
+فني
+مساعد فني
+عامل
+مورد
+مستخدم
+permissions
+	"desc"
+	"name"
+مدير المستخدمين
+admin-users
+مدير المحتوى 
+admin-content
+مدير الصلاحيات
+admin-permission
+communications
+ 	"welcome",
+	"phone",
+	"email",
+	"city_id",
+	"country_id",
+	"url",
+media
+	"url"
+	"ff_code"

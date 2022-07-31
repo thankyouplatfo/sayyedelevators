@@ -15,11 +15,12 @@ class CreateCommunicationsTable extends Migration
     {
         Schema::create('communications', function (Blueprint $table) {
             $table->id();
-            $table->string('welcome_phrase');
-            $table->integer('city_id');//->references('id')->on('cities');//->cascadeOnDelete('cascade');
-            $table->integer('country_id');//->references('id')->on('countries');//->cascadeOnDelete('cascade');
+            $table->string('welcome');
             $table->string('phone');
             $table->string('email');
+            $table->integer('city_id');//->references('id')->on('cities')->cascadeOnDelete('cascade');
+            $table->integer('country_id');//->references('id')->on('countries')->cascadeOnDelete('cascade');
+            $table->string('url');
             $table->timestamps();
         });
     }

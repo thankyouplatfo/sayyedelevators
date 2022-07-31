@@ -15,9 +15,10 @@ class CommunicationFactory extends Factory
     {
         return [
             //
-            'welcome_phrase' => $this->faker->realText(50),
-            'city_id' => $this->faker->numberBetween(1,90),
-            'country_id' => $this->faker->numberBetween(1,200),
+            'welcome' => $this->faker->realText(50),
+            'city_id' => $this->faker->numberBetween(1,10),
+            'country_id' => $this->faker->numberBetween(1,10),
+            'url' => $this->faker->url(),
             'phone' => $this->faker->phoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
         ];

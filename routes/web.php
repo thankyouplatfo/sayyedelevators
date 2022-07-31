@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommunicationController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PermissionRoleController;
 use App\Http\Controllers\RoleController;
@@ -55,7 +57,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'Admin'], function () {
             Route::resource('headers', WelcomeHeaderController::class);
             Route::resource('projects', WelcomeProjectController::class);
             Route::resource('about', WelcomeAboutController::class);
-            Route::resource('contact_us', ContactUsController::class);
+            Route::resource('communications', CommunicationController::class);
+            Route::resource('media', MediaController::class);
         });
     });
 });

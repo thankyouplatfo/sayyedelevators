@@ -1,7 +1,12 @@
 Communication
 communication
-	welcome_phrase
+	'welcome'
 	city_id
 	country_id
 	phone
 	email
+Media
+media
+	url
+	ff_code
+

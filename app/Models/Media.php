@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cities extends Model
+class Media extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
-
+    //
+    protected $fillable = ['url', 'ff_code'];
 }

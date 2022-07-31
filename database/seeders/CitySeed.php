@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Cities;
-use App\Models\Country;
+use App\Models\City;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class CitiesSeed extends Seeder
+class CitySeed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,14 +15,13 @@ class CitiesSeed extends Seeder
      */
     public function run()
     {
-        Cities::truncate();
+        City::truncate();
         //
         $cities = [
             ['name' => 'الرياض'],
             ['name' => 'جدة'],
-            ['name' => 'مكة'],
-            ['name' => 'المكرمة'],
-            ['name' => 'المدينة الم]نورة'],
+            ['name' => 'مكة المكرمة'],
+            ['name' => 'المدينة المنورة'],
             ['name' => 'سلطانة'],
             ['name' => 'الدمام'],
             ['name' => 'الطائف'],
@@ -118,7 +116,7 @@ class CitiesSeed extends Seeder
         //
         foreach ($cities as $key => $value) {
             # code...
-            Cities::create($value);
+            City::create($value);
         }
     }
 }

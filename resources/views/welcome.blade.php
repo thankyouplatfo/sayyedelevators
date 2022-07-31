@@ -9,12 +9,11 @@
                     src="{{ asset(Str::contains($cover->path, ['placeholder.com']) ? $cover->path : asset('storage/' . $cover->path)) }}"
                     alt="Architecture" style="height: 100%;width:100%">
             @endforeach
-            <div class="w3-display-middle w3-margin-top w3-center w3-padding w3-light-grey w3-opacity-min w3-round">
-                <h1 class="w3-xxlarge w3-text-white">
-                    <span class="w3-padding w3-black w3-opacity-min">
-                        <b>{{ auth()->user()->email }}</b>
-                    </span>
-                </h1>
+            <div class="w3-display-middle w3-margin-top w3-center w3-hide">
+                <p class="w3-xxlarge w3-text-white">
+                    <span class="w3-padding w3-black w3-opacity-min"><b>BR</b></span>
+                    <span class="w3-hide-small w3-text-light-grey">Architects</span>
+                </p>
             </div>
             <div class="w3-display-hover w3-display-left" style="height: 100%">
                 <button style="height: 100%;" onclick="myHeader.previous()"
@@ -37,24 +36,35 @@
     <div class="w3-content w3-padding" style="max-width:1564px">
 
         <!-- Project Section -->
-        <div class="w3-container w3-padding-32" id="projects">
+        <div class="w3-container w3-padding-64" id="projects">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">المشاريع</h3>
         </div>
 
         <div class="w3-row-padding">
             @foreach ($projects as $project)
                 <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                    <div class="w3-display-container">
-                        <div class="w3-display-topright w3-black w3-padding">{{ $project->alt }}</div>
+                    <style>
+                        #project-card:hover #project-desc {
+                            display: block !important;
+                        }
+                    </style>
+                    <div class="w3-display-container" id="project-card">
+                        <div class="w3-display-topright w3-black w3-padding">{{ Str::limit($project->alt, 25, '...') }}
+                        </div>
                         <img src="{{ asset(Str::contains($project->path, ['placeholder.com']) ? $project->path : asset('storage/' . $project->path)) }}"
                             alt="{{ $project->alt }}" style="width:100%">
+                        <div class="w3-container w3-card-2" style="margin: 0!important;display:none" id="project-desc">
+                            <p>
+                                {{ $project->alt }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
 
         <!-- About Section -->
-        <div class="w3-container w3-padding-32" id="about">
+        <div class="w3-container w3-padding-64" id="about">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">عنا</h3>
             <p class="w3-justify">
                 @foreach ($about as $item)
@@ -70,67 +80,71 @@
                 @endif
             @endforeach
             <!--
-                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                        <img src="{{ asset('images/site/team/1.png') }}" alt="John" style="width:100%">
-                                        <h3>م/أحمد السيد</h3>
-                                        <p class="w3-opacity">مدير عام المؤسسة</p>
-                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                            التطبيق.</p>
-                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                    </div>
-                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                        <img src="{{ asset('images/site/team/2.png') }}" alt="Jane" style="width:100%">
-                                        <h3>م/أحمد بشرى</h3>
-                                        <p class="w3-opacity">مدير الفنيين</p>
-                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                            التطبيق.</p>
-                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                    </div>
-                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                        <img src="{{ asset('images/site/team/1.png') }}" alt="Mike" style="width:100%">
-                                        <h3>م/مهدي المشكلي</h3>
-                                        <p class="w3-opacity">مدير ميداني</p>
-                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                            التطبيق.</p>
-                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                    </div>
-                                    <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                                        <img src="{{ asset('images/site/team/2.png') }}" alt="Dan" style="width:100%">
-                                        <h3>معتز المشكلي</h3>
-                                        <p class="w3-opacity">مسؤول التقنية ولإعلام الجديد</p>
-                                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                            يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                            التطبيق.</p>
-                                        <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                                    </div>
-                                    -->
+                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                            <img src="{{ asset('images/site/team/1.png') }}" alt="John" style="width:100%">
+                            <h3>م/أحمد السيد</h3>
+                            <p class="w3-opacity">مدير عام المؤسسة</p>
+                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                التطبيق.</p>
+                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                        </div>
+                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                            <img src="{{ asset('images/site/team/2.png') }}" alt="Jane" style="width:100%">
+                            <h3>م/أحمد بشرى</h3>
+                            <p class="w3-opacity">مدير الفنيين</p>
+                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                التطبيق.</p>
+                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                        </div>
+                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                            <img src="{{ asset('images/site/team/1.png') }}" alt="Mike" style="width:100%">
+                            <h3>م/مهدي المشكلي</h3>
+                            <p class="w3-opacity">مدير ميداني</p>
+                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                التطبيق.</p>
+                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                        </div>
+                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                            <img src="{{ asset('images/site/team/2.png') }}" alt="Dan" style="width:100%">
+                            <h3>معتز المشكلي</h3>
+                            <p class="w3-opacity">مسؤول التقنية ولإعلام الجديد</p>
+                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                                التطبيق.</p>
+                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                        </div>
+                        -->
         </div>
 
         <!-- Contact Container -->
         <div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
             <div class="w3-row">
                 <div class="w3-col m12 w3-center">
-                    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">أتصل بنا</span></div>
-                    <h3>العناوين</h3>
+                    <div class="w3-padding-16 w3-text-black"><span class="w3-xlarge w3-border-black w3-bottombar">اتصل
+                            بنا</span></div>
                     @foreach ($communications as $communication)
                         <p class="w3-large">
-                            {{ $communication->welcome_phrase }}
+                            {{ $communication->welcome }}
                         </p>
                         <p class="w3-large">
-                            <i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>
-                            <a href="{{ '' }}">{{ $communication->country->name }}</a> - <small><i>انقر للحصول على
-                                    الإتجاهات</i></small>
+                            <i class="fa fa-map-marker w3-text-black w3-xlarge"></i>
+                            <a href="https://goo.gl/maps/b2bVvTmCLVqfQht36">{{ $communication->city->name }} ,
+                                {{ $communication->country->name }}</a>{{-- - <small><i>انقر للحصول على
+                                    الإتجاهات</i></small> --}}
                         </p>
-                        <p class="w3-large"><i class="fa fa-phone w3-text-teal w3-xlarge"></i>
-                            <a href="{{ '+00 1515151515' }}">{{ '+00 1515151515' }}</a> - <small><i>انقر
-                                    للإتصال</i></small>
+                        <p class="w3-large"><i class="fa-brands fa-whatsapp w3-text-black w3-xxlarge"></i><i
+                                class=""></i>
+                            <a dir="ltr"
+                                href="https://wa.me/{{ $communication->phone }}/?text='السلام عليكم كيف يمكنكم خدمتي؟'">0{{ $communication->phone }}</a>{{-- - <small><i>انقر
+                                للإتصال</i></small> --}}
                         </p>
-                        <p class="w3-large"><i class="fa-regular fa-envelope w3-text-teal w3-xlarge"></i>
-                            <a href="mailto:{{ 'test@test.com' }}">{{ 'test@test.com' }}</a> - <small><i>انقر لإرسال بريد
-                                    إلكتروني</i></small>
+                        <p class="w3-large"><i class="fa-regular fa-envelope w3-text-black w3-xlarge"></i>
+                            <a
+                                href="mailto:{{ $communication->email }}">{{ $communication->email }}</a>{{-- - <small><i>انقر لإرسال بريد
+                                إلكتروني</i></small> --}}
                         </p>
                     @endforeach
                 </div>
@@ -154,8 +168,29 @@
                     </form>
                 </div>
             </div>
+            <!--time lines-->
+            <div class="w3-row-padding w3-hide">
+                <div class="w3-col l4">
+                    <a class="twitter-timeline" data-lang="ar" data-theme="dark"
+                        href="https://twitter.com/sayye4elevators?ref_src=twsrc%5Etfw">Tweets by sayye4elevators</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div class="w3-col l4 w3-red w3-padding" style="height: 200px">
+                    <iframe
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsayye4elevators&tabs=timeline&width=333&height=333&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
+                        width="333" height="333" style="border:none;overflow:hidden" scrolling="no"
+                        frameborder="0" allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+            </div>
         </div>
-
+        <!-- Image of location/map -->
+        <div class="w3-container w3-center w3-row">
+            <iframe class="w3-col l12"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3715.3402136622876!2d39.8317912!3d21.3765048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c205f75bc50201%3A0x771673e0fef7b2c!2z2YXYpNiz2LPYqSDYp9it2YXYryDYp9mE2LPZitivINmE2YTZhdi12KfYudiv!5e0!3m2!1sar!2ssa!4v1659113472206!5m2!1sar!2ssa"
+                height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
         <!-- End page content -->
     </div>
 @endsection

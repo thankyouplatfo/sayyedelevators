@@ -20,6 +20,7 @@ class WelcomePageController extends Controller
         $about = $this->welcomeAbout->orderBy('id', 'desc')->paginate(1); 
         $users = $this->user->orderBy('id', 'desc')->paginate(4);
         $communications = $this->communication->orderBy('id','desc')->paginate(1); 
+        $medium = $this->medium->orderBy('id','desc')->get(); 
         //
         return view('welcome', compact('covers','projects','about','users','communications'));
     }
