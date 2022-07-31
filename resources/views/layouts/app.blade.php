@@ -74,13 +74,13 @@
                 <p class="w3-xlarge w3-container" style="font-family:'Cairo'!important;">الصفحات</p>
                 @if (Route::has('login'))
                     @admin
-                        <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button">لوحة التحكم</a>
+                        <a href="{{ route('dashboard') }}" class="w3-bar-item w3-button w3-right-align">لوحة التحكم</a>
                     @endadmin
                     @auth
                         <a class="w3-bar-item w3-button w3-right-align" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            تسجيل الخروج
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -111,7 +111,7 @@
         <h4 class="w3-xxlarge">تابعنا</h4>
         @include('partials.media')
         <!---->
-        <p>تشكر مؤسسة {{ config('app.name') }} موقع <a href="https://www.w3schools.com/w3css/default.asp"
+        <p>تشكر {{ config('app.name') }} موقع <a href="https://www.w3schools.com/w3css/default.asp"
                 target="_blank">w3.css</a> على إتاحته هذا القالب مجانا كما قام بتعديل هذا القالب وتطويره/ <a href="https://www.facebook.com/almashkliabualeiz/">معتز المشكلي</a></p>
         <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
             <span class="w3-text w3-padding w3-black w3-hide-small">إلى الأعلى</span>

@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Http\ViewCompoaeres\MediaCompoaer;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -33,5 +33,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return auth()->check() && auth()->user()->isAdmin();
         });
+        //
+        //Paginator::useBootstrap();
     }
 }

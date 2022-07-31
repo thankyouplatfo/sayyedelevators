@@ -37,7 +37,9 @@
 
         <!-- Project Section -->
         <div class="w3-container w3-padding-64" id="projects">
-            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">المشاريع</h3>
+            <a href="{{ route('our_projects') }}" target="_blank">
+                <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">المشاريع</h3>
+            </a>
         </div>
 
         <div class="w3-row-padding">
@@ -80,43 +82,43 @@
                 @endif
             @endforeach
             <!--
-                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                            <img src="{{ asset('images/site/team/1.png') }}" alt="John" style="width:100%">
-                            <h3>م/أحمد السيد</h3>
-                            <p class="w3-opacity">مدير عام المؤسسة</p>
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                التطبيق.</p>
-                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                        </div>
-                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                            <img src="{{ asset('images/site/team/2.png') }}" alt="Jane" style="width:100%">
-                            <h3>م/أحمد بشرى</h3>
-                            <p class="w3-opacity">مدير الفنيين</p>
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                التطبيق.</p>
-                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                        </div>
-                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                            <img src="{{ asset('images/site/team/1.png') }}" alt="Mike" style="width:100%">
-                            <h3>م/مهدي المشكلي</h3>
-                            <p class="w3-opacity">مدير ميداني</p>
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                التطبيق.</p>
-                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                        </div>
-                        <div class="w3-col l3 m6 w3-margin-bottom w3-right">
-                            <img src="{{ asset('images/site/team/2.png') }}" alt="Dan" style="width:100%">
-                            <h3>معتز المشكلي</h3>
-                            <p class="w3-opacity">مسؤول التقنية ولإعلام الجديد</p>
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
-                                يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                                التطبيق.</p>
-                            <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
-                        </div>
-                        -->
+                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                    <img src="{{ asset('images/site/team/1.png') }}" alt="John" style="width:100%">
+                    <h3>م/أحمد السيد</h3>
+                    <p class="w3-opacity">مدير عام المؤسسة</p>
+                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                        التطبيق.</p>
+                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                    <img src="{{ asset('images/site/team/2.png') }}" alt="Jane" style="width:100%">
+                    <h3>م/أحمد بشرى</h3>
+                    <p class="w3-opacity">مدير الفنيين</p>
+                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                        التطبيق.</p>
+                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                    <img src="{{ asset('images/site/team/1.png') }}" alt="Mike" style="width:100%">
+                    <h3>م/مهدي المشكلي</h3>
+                    <p class="w3-opacity">مدير ميداني</p>
+                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                        التطبيق.</p>
+                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom w3-right">
+                    <img src="{{ asset('images/site/team/2.png') }}" alt="Dan" style="width:100%">
+                    <h3>معتز المشكلي</h3>
+                    <p class="w3-opacity">مسؤول التقنية ولإعلام الجديد</p>
+                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث
+                        يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
+                        التطبيق.</p>
+                    <p><button class="w3-button w3-light-grey w3-block">تواصل</button></p>
+                </div>
+            -->
         </div>
 
         <!-- Contact Container -->
