@@ -18,7 +18,7 @@
         h3,
         h4,
         h5 {
-            font-family: "Raleway", sans-serif
+            font-family: "Cairo", sans-serif
         }
     </style>
 </head>
@@ -26,100 +26,61 @@
 <body class="w3-light-grey w3-right-align" dir="rtl">
 
     <!-- Top container -->
-    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+    <div class="w3-bar w3-top w3-light-black" style="z-index:4">
         <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
-            onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-        <span class="w3-bar-item w3-right">Logo</span>
+            onclick="w3_open();"><i class="fa fa-bars"></i></button>
+        <span class="w3-bar-item w3-right">السيد للمصاعد</span>
     </div>
 
     <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-collapse w3-white w3-animate-right" style="z-index:3;width:300px;right:0!important"
-        id="mySidebar"><br>
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-right w3-light-grey"
+        style="z-index:3;width:300px;right:0!important" id="mySidebar"><br>
         <div class="w3-container w3-row">
-            <div class="w3-col s4">
-                <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
-            </div>
-            <div class="w3-col s8 w3-bar">
-                <span>Welcome, <strong>{{ auth()->user()->name }}</strong></span><br>
-                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
-            </div>
+            <a href="#" class="w3-button w3-padding w3-round" style="white-space:normal!important">
+                <div class="w3-col w3-right s4">
+                    <img src="{{ asset('images/temp/avataaars.png') }}" class="w3-circle w3-margin-right"
+                        style="width:46px">
+                </div>
+                <div class="w3-col w3-right s8 w3-bar">
+                    <span>مرحبا, <strong>{{ auth()->user()->name }}</strong></span><br>
+                </div>
+            </a>
+
         </div>
         <hr>
         <div class="w3-container">
-            <h5>Dashboard</h5>
+            <a href="{{ route('dashboard') }}">
+                <h5>لوحة التحكم</h5>
+            </a>
         </div>
-        <div class="w3-bar-block">
+        <div class="w3-bar-block w3-padding">
             <a href="#"
                 class="w3-bar-item w3-button w3-padding w3-right-align-16 w3-hide-large w3-dark-grey w3-hover-black"
                 onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-            {{-- <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align w3-blue"><i
-                    class="fa fa-users fa-fw"></i>
-                Overview</a> --}}
-            <a href="{{ route('users.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                    class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-users"></i> المستخدمين
-            </a>
-            <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('demoAcc')">
-                <i class="fa-solid w3-margin-left fa-pencil"></i>
+            <a href="{{ route('cms') }}" class="w3-bar-item w3-button w3-right-align w3-round"
+                onclick="myAccFunc('demoAcc')">
+                <i class="fa-solid fa-paintbrush w3-margin-left w3-text-orange"></i>
                 إدارة المحتوى
-                <i class="fa fa-caret-down w3-left"></i>
-            </div>
-            <div id="demoAcc" class="w3-hide w3-white w3-card-4"  style="padding-right: 12.5px">
-                {{-- <a href="" class="w3-bar-item w3-button w3-right-align"><i
-                    class="fas w3-margin-left fa-pencil"></i> <i class="fas w3-margin-left fa-home"></i> الرئيسية
-                    لإدارة المحتوى </a> --}}
-                <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('cms-welcome-page-parts')">
-                    <i class="fa-solid w3-margin-left fa-house w3-right"></i>الرئيسية <i
-                        class="fa fa-caret-down w3-left"></i>
-                </div>
-                <div id="cms-welcome-page-parts" class="w3-hide w3-white w3-card-4" style="padding-right: 25px">
-                    <a href="{{ route('cms.welcome') }}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fas w3-margin-left fa-home"></i>الكل</a>
-                    <a href="{{ route('headers.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fas w3-margin-left fa-image"></i> صور رأس الصفحة</a>
-                    <a href="{{ route('projects.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fa-solid w3-margin-left fa-diagram-project"></i> المشاريع</a>
-                    <a href="{{ route('about.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fa-solid w3-margin-left fa-address-card"></i> عنا</a>
-                    <a href="{{ route('communications.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fa-solid w3-margin-left fa-people-group"></i> تواصل معنا</a>
-                    <a href="{{ route('media.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                            class="fa-solid w3-margin-left fa-hashtag"></i> التواصل الإجتماعي</a>
-                </div>
-            </div>
-            <div class="w3-bar-item w3-button w3-right-align" onclick="myAccFunc('demoAcc2')">
-                <i class="fa-solid w3-margin-left fa-pencil"></i>
+            </a>
+            <a href="{{ route('users.index') }}" class="w3-bar-item w3-button w3-right-align w3-round">
+                <i class="fa-solid fa-user w3-margin-left w3-text-light-green"></i> المستخدمين
+            </a>
+            <div class="w3-bar-item w3-button w3-right-align w3-round" onclick="myAccFunc('demoAcc2')">
+                <i class="fa-solid fa-paint-roller w3-margin-left w3-text-light-blue"></i>
                 الأدوار والصلاحيات
-                <i class="fa fa-caret-down w3-left"></i>
             </div>
             <div id="demoAcc2" class="w3-hide w3-white w3-card-4">
-                {{-- <a href="{{-- route('header_images')" class="w3-bar-item w3-button w3-right-align">
+                {{-- <a href="{{-- route('header_images')" class="w3-bar-item w3-button w3-right-align w3-round">
                     <i class="fas w3-margin-left fa-home"></i> الرئيسية
                 </a> --}}
-                <a href="{{ route('roles.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                <a href="{{ route('roles.index') }}" class="w3-bar-item w3-button w3-right-align w3-round"><i
                         class="fas w3-margin-left fa-home"></i>الأدوار</a>
-                <a href="{{ route('permissions.index') }}" class="w3-bar-item w3-button w3-right-align"><i
+                <a href="{{ route('permissions.index') }}" class="w3-bar-item w3-button w3-right-align w3-round"><i
                         class="fas w3-margin-left fa-image"></i>الصلاحيات</a>
-                <a href="{{ route('permission_roles.index') }}" class="w3-bar-item w3-button w3-right-align"><i
-                        class="fas w3-margin-left fa-image"></i>ربط الأدوار بالصلاحيات</a>
+                <a href="{{ route('permission_roles.index') }}"
+                    class="w3-bar-item w3-button w3-right-align w3-round"><i class="fas w3-margin-left fa-image"></i>ربط
+                    الأدوار بالصلاحيات</a>
             </div>
-            {{-- <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-eye fa-fw"></i>
-                Views</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-users fa-fw"></i>
-                Traffic</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i
-                    class="fa fa-bullseye fa-fw"></i>  Geo</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i
-                    class="fa fa-diamond fa-fw"></i>  Orders</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-bell fa-fw"></i>
-                News</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-bank fa-fw"></i>
-                General</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i
-                    class="fa fa-history fa-fw"></i>  History</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding w3-right-align"><i class="fa fa-cog fa-fw"></i>
-                Settings</a><br><br> --}}
         </div>
     </nav>
 
@@ -142,8 +103,8 @@
         </div>
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
-            <h4>FOOTER</h4>
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+            <h4>التذييل</h4>
+            @include('inc.thanksCreatorTemplate')
         </footer>
 
         <!-- End page content -->

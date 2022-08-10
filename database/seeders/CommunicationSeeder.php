@@ -19,7 +19,7 @@ class CommunicationSeeder extends Seeder
         //Communication::factory(10)->create();
         //
         DB::table('communications')->insert([
-            "welcome" => 'قم بالتواصل معنا وكن على ثقة بأننا نستمع لشكواك أو مقترحك وعمل على حلها ',
+            "welcome" => 'قم بالتواصل معنا وكن على ثقة بأننا نستمع مقترحك أو لشكواك وعمل على حلها ',
             "phone" => '555850171',
             "email" => 'sayyedElevators@gmail.com',
             "city_id" => '3',

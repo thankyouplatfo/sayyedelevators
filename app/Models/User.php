@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\IncModels;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, IncModels;
 
     /**
      * The attributes that are mass assignable.
@@ -47,7 +48,7 @@ class User extends Authenticatable
     public function role()
     {
         # code...
-        return $this->belongsTo(Role::class,'role_id');
+        return $this->belongsTo(Role::class, 'role_id');
     }
     //
     public function isAdmin()
@@ -59,5 +60,8 @@ class User extends Authenticatable
     public function hasAllow($permission)
     {
         # code...
+        $role = $this->role()->first();
+        //
+        return $role->permissions()->whereName($permission)->first() ? true : false;
     }
 }

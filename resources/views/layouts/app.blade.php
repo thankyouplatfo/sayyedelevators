@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <title>W3.CSS Template</title>
@@ -111,8 +111,7 @@
         <h4 class="w3-xxlarge">تابعنا</h4>
         @include('partials.media')
         <!---->
-        <p>تشكر {{ config('app.name') }} موقع <a href="https://www.w3schools.com/w3css/default.asp"
-                target="_blank">w3.css</a> على إتاحته هذا القالب مجانا كما قام بتعديل هذا القالب وتطويره/ <a href="https://www.facebook.com/almashkliabualeiz/">معتز المشكلي</a></p>
+        @include('inc.thanksCreatorTemplate')
         <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
             <span class="w3-text w3-padding w3-black w3-hide-small">إلى الأعلى</span>
             <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">

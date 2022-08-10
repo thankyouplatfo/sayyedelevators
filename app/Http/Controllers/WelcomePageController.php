@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Traits\IncModels;
 use Illuminate\Http\Request;
 
@@ -30,5 +31,13 @@ class WelcomePageController extends Controller
         $projects = $this->welcomeProject->all();
         # code...
         return view('pages.our_projects', compact('projects'));
+    }
+    //
+    public function user($id)
+    {
+        # code...
+        $user = $this->user->find($id);
+        //
+        return view('users.show',compact('user'));
     }
 }

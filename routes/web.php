@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/'], function () {
     Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
     Route::get('/our_projects', [WelcomePageController::class, 'our_projects'])->name('our_projects');
-    Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
+    Route::get('/users/{id}', [WelcomePageController::class, 'user'])->name('user');
     Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
     Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
     Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');

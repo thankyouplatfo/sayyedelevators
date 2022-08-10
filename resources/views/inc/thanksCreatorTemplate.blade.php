@@ -1,0 +1,2 @@
+<p>تشكر {{ config('app.name') }} موقع <a href="https://www.w3schools.com/w3css/default.asp"
+    target="_blank">w3.css</a> على إتاحته هذا القالب مجانا كما قام بتعديل هذا القالب وتطويره/ <a href="https://www.facebook.com/almashkliabualeiz/">معتز المشكلي</a></p>

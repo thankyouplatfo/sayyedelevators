@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        //\App\Models\User::factory(10)->create();
         //
         DB::table('users')->insert([
-            "name" => "sayyedelevators",
+            "name" => "السيد للمصاعد",
             "email" => "sayyedelevators@sael.com",
             "role_id" => "1",
             "type" => "1",
@@ -40,19 +40,19 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'المهندس/ احمد بشرى',
             'email' => 'e.ah.bush@sael.com',
-            'role_id' => '1',
+            'role_id' => '2',
             'type' => '1',
             "password" => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', //password
         ]);
         DB::table('users')->insert([
             'name' => 'المهندس/ مهدي المشكلي',
             'email' => 'e.mah.mash@sael.com',
-            'role_id' => '1',
+            'role_id' => '2',
             'type' => '1',
             "password" => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', //password
         ]);
         DB::table('users')->insert([
-            'name' => 'المدير التقني/ معتز المشلي',
+            'name' => 'المدير التقني/ معتز المشكلي',
             'email' => 'm.m@sael.com',
             'role_id' => '1',
             'type' => '1',

@@ -1,14 +1,15 @@
 users
-	"id",
-     "name",
-     "email",
-     "role_id",
-     "type",
-     "password",
+ 	"id",
+	"name",
+	"email",
+	"role_id",
+	"type",
+	"password",
 	//
 	"image"
 	"bio"
 	"website"
+	"position"
 welcome_headers
 	"path",
 	"alt",

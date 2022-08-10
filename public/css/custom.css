@@ -1,0 +1,9 @@
+/*rtl + ltr*/
+.rtl{
+    direction: rtl!important;
+    text-align: right!important;
+}
+.ltr{
+    direction: rtl!important;
+    text-align: right!important;
+}
